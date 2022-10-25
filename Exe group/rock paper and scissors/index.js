@@ -26,7 +26,7 @@ function gameEngin(userChoice, computerChoice){
         alert(`You choose ${user} and computer choose ${computer}
 It's a tie`);
     }else if (user === "rock" && computer === "paper"){
-        computerScore ++
+        computerScore ++    
         alert(`You choose ${user} and computer choose ${computer}
 You lose`);
     }else if (user === "rock" && computer === "scissor"){
