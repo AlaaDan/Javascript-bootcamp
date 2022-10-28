@@ -902,14 +902,34 @@ const users = [
 ]
 
 function filterByCountry(users, code){
-    let filteredUsers = []
-    for(objects of users){
+    let filteredUsers = [];
+    for(let objects of users){
         if (objects.nat === code){
-            filteredUsers.push(objects)
+            filteredUsers.push(objects);
         }
 
     }
     return filteredUsers
-}
+};
 
-console.log(filterByCountry(users, "NO"))
+//console.log(filterByCountry(users, "NO"));
+
+function filterByGender(users, gender){
+    let listByGender = [];
+    
+    for(objects of users){
+        if (gender === "Male"){
+            if (objects.name.title === "Mr" || objects.name.title === "Monsieur" || objects.name.title === "Ms"){
+                listByGender.push(objects);
+            }
+        }
+        else if(gender === "Female"){
+            if(objects.name.title === "Miss" || objects.name.title === "Mademoiselle" || objects.name.title === "Mrs"){
+                listByGender.push(objects)
+            }
+        }
+    }
+    return listByGender
+}   
+    
+console.log(filterByGender(users, "Female"))
