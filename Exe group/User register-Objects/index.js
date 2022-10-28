@@ -904,7 +904,7 @@ const users = [
 function filterByCountry(users, code){
     let filteredUsers = [];
     for(let objects of users){
-        if (objects.nat === code){
+        if (objects.nat === code || objects.nat === "."+code.toLowerCase()){
             filteredUsers.push(objects);
         }
 
@@ -925,7 +925,7 @@ function filterByGender(users, gender){
         }
         else if(gender === "Female"){
             if(objects.name.title === "Miss" || objects.name.title === "Mademoiselle" || objects.name.title === "Mrs"){
-                listByGender.push(objects)
+                listByGender.push(objects);
             }
         }
     }
@@ -936,11 +936,19 @@ function filterByGender(users, gender){
 
 
 function listEmails (users){
-    let listArray = []
+    let listArray = [];
     for(let item of users){
-        listArray.push(item.email)
+        listArray.push(item.email);
     }
     return listArray
 }
 
-console.log(listEmails(users))
+//console.log(listEmails(users))
+
+function reformedEmails(users){
+    for (item of users){
+        item.email = item.name.last+"."+item.name.first+"@evilcopr.countrydomain"
+    }
+    return users
+}
+console.log(reformedEmails(users))
