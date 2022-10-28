@@ -932,4 +932,15 @@ function filterByGender(users, gender){
     return listByGender
 }   
     
-console.log(filterByGender(users, "Female"))
+//console.log(filterByGender(users, "Female"))
+
+
+function listEmails (users){
+    let listArray = []
+    for(let item of users){
+        listArray.push(item.email)
+    }
+    return listArray
+}
+
+console.log(listEmails(users))
